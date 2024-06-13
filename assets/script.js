@@ -22,41 +22,52 @@ const flecheGauche = document.querySelector(".arrow_left")
 const bannerImg = document.querySelector(".banner-img")
 const bannerText = document.querySelector("#banner p")
 
-let index = 0
-
-function banner() {
-	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`
-	bannerText.innerHTML = slides[index].tagLine
-}
-
+let i = 0
 
 flecheDroite.addEventListener("click", () => {
-	index++
-	if (index >= slides.length) {
-		index = 0
+	i++
+	if ( i >= slides.length) {
+		i = 0
 	}
 
-	banner()
-	console.log("j'ai cliqué tant de fois : " + index)
+	//bannerImg.src = `./assets/images/slideshow/${slides[i].image}` ne marche pas !
+	bannerText.innerHTML = slides[i].tagLine
+	console.log("j'ai cliqué tant de fois : " + i)
 })
 
-
-
+// if (i = 0, i >= slides.length, i++) { i = 0}
+// bannerText.innerHTML = slides[i].tagLine  pourquoi celui plus haut (dans flechedroite) marche et pas celui la ? 
 
 
 flecheGauche.addEventListener("click", () => {
-	index--
-	if (index >= slides.length) {
-		index = 3
+	i--
+	if (i < 0) {
+		i = slides.length - 1
 	}
-	console.log("Vous avez cliquez tant de fois : " +index)
-})
+	bannerImg.src = `./assets/images/slideshow/${slides[i].image}`
+	bannerText.innerHTML = slides[i].tagLine
+	console.log("Vous avez cliquez tant de fois : " +i)
+ })
 
 
-//let bulletPoints = document.createElement("div")
-//let bulletPointsParent = document.querySelector(".dots")
+ const bulletPointsParent = document.querySelector(".dots")
 
-//bulletPointsParent.appendChild(bulletPoints)
 
-//bulletPoints.classList.add("dot")
 
+for (i = 0; i > slides.length; i++) {
+	const iSlides = slides[i]
+	const bulletPoints = document.createElement("div")
+	bulletPointsParent.appendChild(bulletPoints)
+	bulletPoints.classList.add("dot")
+}
+
+//for (i = 0; i > slides.length; i ++) {
+
+	//if (i==0) {
+		//dots.insertAdjacentElementHTML(`beforeend`, `<div class="dot dot_selected"></div>`)
+	//}
+	//else {
+		//dots.insertAdjacentElementHTML(`beforeend`, `<div class="dot"></div>`)
+	//}
+	//bulletPoints.innerHTML = slides[i]
+//}
