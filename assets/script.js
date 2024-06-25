@@ -18,7 +18,7 @@ const slides = [
   },
 ];
 
-index = 0;
+let index = 0;
 
 const flecheDroite = document.createElement("img");
 const flecheGauche = document.createElement("img");
