@@ -34,7 +34,7 @@ flecheDroite.classList.add("arrow", "arrow_right");
 flecheGauche.classList.add("arrow", "arrow_left");
 
 banner.appendChild(flecheDroite);
-banner.appendChild((l = flecheGauche));
+banner.appendChild(flecheGauche);
 
 flecheDroite.addEventListener("click", () => {
   index++;
